@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+    <!-- Bootstrap -->
+    <link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Toastr -->
+    <link href="../static/vendors/toastr/toastr.min.css" rel="stylesheet">
+    <!-- Upload -->
+    <link href="../static/production/css/upload/upload.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../static/build/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="nav-md" ng-app="myApp">
+<div class="container body" ng-controller="myCtrl">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;background-color: #1A2732;padding-top: 10px;text-align: center">
+                    <img src="../static/build/images/nidec.png">
+                </div>
+                <div class="clearfix"></div>
+                <!-- menu profile quick info -->
+
+                <!-- /menu profile quick info -->
+                <br />
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li class="current-page"><a href="go_index"><i class="fa fa-home"></i> HomePage </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+            </div>
+        </div>
+        <!-- top navigation -->
+        <div class="top_nav" style="height: 57px;background-color: #F7F7F7">
+
+            <div class="nav_menu">
+                <nav>
+                    <div style="height: 57px;text-align: center">
+                        <span style="font-size: 30px">Spectrum image output tools</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-7 col-sm-7 col-xs-7">
+                    <!--tree-->
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th width="15%" style="vertical-align: middle">
+                                <span style="font-size: 20px">Spectrum Item List：</span>
+                            </th>
+                            <td width="20%">
+                                <select id="selectedItem" style="width: 300px" ng-model="selectedItemList" class="form-control" ng-options="item for item in item_list"></select>
+                            </td>
+                        </tr>
+                        <tr style="border-top: hidden">
+                            <th style="vertical-align: middle;text-align: center">
+                                <span></span>
+                            </th>
+                            <td>
+                                <span>Note:if you want to add new spectrum files,please click<button class="btn btn-link" style="height: 17px;padding-bottom: 25px" onclick="showModal('xlsx')">here</button></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="15%" style="vertical-align: middle">
+                                <span style="font-size: 20px" >CSV Data Files：</span>
+                            </th>
+                            <td width="20%">
+                                <button class="btn btn-primary" onclick="showModal('csv')">Browse</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!--遮罩-->
+        <div class="overlay"></div>
+        <!--模态框-->
+        <div id="modal" class="dropbox">
+            <div class="items-container">
+                <div id="close" style="cursor:pointer;float: right;width:20px">
+                    <span class="css-close"></span>
+                </div>
+                <div>
+                    <p class="head"><b>Drag files to here</b></p>
+                    <div class="content" id="content">
+                        <table class="table">
+                            <tbody class="tbody"></tbody>
+                        </table>
+                    </div>
+                    <div class="footer">
+                        <button class="btn btn-primary" onclick="upload()">Upload</button>
+                    </div>
+{#                                        <a href='#' onclick='clearAll()' style='position:absolute;bottom:10px;right:30px;'>Clear</a>#}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- /page content -->
+        <!-- footer content -->
+
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- jQuery -->
+<script src="../static/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- upload -->
+<script src="../static/vendors/upload/upload.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="../static/build/js/custom.min.js"></script>
+<!-- AngularJS -->
+<script src="../static/vendors/angular/angular.js"></script>
+<!-- Toastr -->
+<script src="../static/vendors/toastr/toastr.min.js"></script>
+<!-- index.js -->
+<script src="../static/sources/index.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function(){
+        toastr.options= {
+            "closeButton":false,//显示关闭按钮
+            "debug":false,//启用debug
+            "positionClass":"toast-top-center",//弹出的位置
+            "showDuration":"300",//显示的时间
+            "hideDuration":"1000",//消失的时间
+            "timeOut":"5000",//停留的时间
+            "extendedTimeOut":"1000",//控制时间
+            "showEasing":"swing",//显示时的动画缓冲方式
+            "hideEasing":"linear",//消失时的动画缓冲方式
+            "showMethod":"fadeIn",//显示时的动画方式
+            "hideMethod":"fadeOut"//消失时的动画方式
+        };
+    });
+</script>
+</body>
+</html>
